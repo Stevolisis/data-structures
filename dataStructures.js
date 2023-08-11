@@ -171,8 +171,47 @@ function maxSubArray(nums) {
   
   // Test the function
   const nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
-  console.log(maxSubArray(nums))
+//   console.log(maxSubArray(nums));
 
 
 
+
+
+  //-----------Maximum Prodyct Subarray-----------------
+  function maxProductArr(nums){
+    let currentPrdt=nums[0];
+    let maxProduct=nums[0];
+
+    for(let i=1; i < nums.length; i++){
+        currentPrdt=Math.max(currentPrdt, currentPrdt*nums[i]);
+        maxProduct=Math.max(maxProduct,currentPrdt);
+    }
+
+    return maxProduct
+  }
+//   console.log(maxProductArr([2,3,-2,4])); //24
+
+
+
+//--------------GPT----------------
+function maxProduct(nums) {
+    let maxProduct = nums[0];
+    let minProduct = nums[0];
+    let result = nums[0];
+  
+    for (let i = 1; i < nums.length; i++) {
+      if (nums[i] < 0) {
+        [maxProduct, minProduct] = [minProduct, maxProduct];
+      }
+  
+      maxProduct = Math.max(nums[i], maxProduct * nums[i]);
+      minProduct = Math.min(nums[i], minProduct * nums[i]);
+      result = Math.max(result, maxProduct);
+    }
+  
+    return result;
+  }
+  
+  // Test the function
+  console.log(maxProduct([2, 3, -2, 4]));
   
