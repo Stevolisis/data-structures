@@ -113,16 +113,16 @@ function arrayExceptSelf(nums){
     return newArr;
 }
 
-console.log(arrayExceptSelf([1,2,3,4]));
+// console.log(arrayExceptSelf([1,2,3,4]));
 
 
 
 //0(n)
 function arrayExceptSelf(nums) {
     const n = nums.length;
-    const prefix = new Array(n);
-    const suffix = new Array(n);
-    const answer = new Array(n);
+    const prefix = [];
+    const suffix = [];
+    const answer = [];
   
     // Calculate prefix products
     let product = 1;
@@ -146,5 +146,33 @@ function arrayExceptSelf(nums) {
     return answer;
   }
   
-  console.log('2',arrayExceptSelf([1, 2, 3, 4]));
+//   console.log('2',arrayExceptSelf([1, 2, 3, 4]));
+
+
+
+
+
+
+//------------Maximum Subarray-----------------
+function maxSubArray(nums) {
+    let maxSum = nums[0]; // Initialize maxSum with the first element
+    let currentSum = nums[0]; // Initialize currentSum with the first element
+    
+    for (let i = 1; i < nums.length; i++) {
+      // Compare adding the current element to the current sum or starting a new subarray
+      currentSum = Math.max(nums[i], currentSum + nums[i]);
+  
+      // Update maxSum if the current subarray sum is greater
+      maxSum = Math.max(maxSum, currentSum);
+    }
+    
+    return maxSum;
+  }
+  
+  // Test the function
+  const nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
+  console.log(maxSubArray(nums))
+
+
+
   
