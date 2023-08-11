@@ -88,11 +88,63 @@ const result2 = maxProfit(prices2);
 
 
 
-//contains duplicate
+//---------contains duplicate------------
 function checkDuplicate(nums){
     const nums2=new Set(nums);
     
     return nums.length===nums2.size ? false : true
 }
 
-console.log(checkDuplicate([1,2,3,4]))
+// console.log(checkDuplicate([1,2,3,4]));
+
+
+
+
+
+
+
+//-----------Product of Array Except Self------------
+//------mine---- time-complicity=0(n^2)
+function arrayExceptSelf(nums){
+    let newArr=[]
+    for(let i = 0; i < nums.length; i++){
+        newArr.push(nums.filter(num=> num!== nums.at(i)).reduce((a,cv)=>a*cv,1));
+    }
+    return newArr;
+}
+
+console.log(arrayExceptSelf([1,2,3,4]));
+
+
+
+//0(n)
+function arrayExceptSelf(nums) {
+    const n = nums.length;
+    const prefix = new Array(n);
+    const suffix = new Array(n);
+    const answer = new Array(n);
+  
+    // Calculate prefix products
+    let product = 1;
+    for (let i = 0; i < n; i++) {
+      prefix[i] = product;
+      product *= nums[i];
+    }
+  
+    // Calculate suffix products
+    product = 1;
+    for (let i = n - 1; i >= 0; i--) {
+      suffix[i] = product;
+      product *= nums[i];
+    }
+  
+    // Combine prefix and suffix for the answer
+    for (let i = 0; i < n; i++) {
+      answer[i] = prefix[i] * suffix[i];
+    }
+  
+    return answer;
+  }
+  
+  console.log('2',arrayExceptSelf([1, 2, 3, 4]));
+  
