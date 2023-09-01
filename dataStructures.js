@@ -108,12 +108,13 @@ function checkDuplicate(nums){
 function arrayExceptSelf(nums){
     let newArr=[]
     for(let i = 0; i < nums.length; i++){
-        newArr.push(nums.filter(num=> num!== nums.at(i)).reduce((a,cv)=>a*cv,1));
+        newArr.push(nums.filter(num=> num!== nums.at(i))
+        .reduce((a,cv)=>a*cv,1));
     }
     return newArr;
 }
 
-// console.log(arrayExceptSelf([1,2,3,4]));
+console.log(arrayExceptSelf([1,2,3,4]));
 
 
 
@@ -213,5 +214,5 @@ function maxProduct(nums) {
   }
   
   // Test the function
-  console.log(maxProduct([2, 3, -2, 4]));
+  // console.log(maxProduct([2, 3, -2, 4]));
   

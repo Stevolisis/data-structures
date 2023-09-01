@@ -52,19 +52,19 @@ const numbers = [0, 1, 2, 3, 4, 5, 6, 7,];
 
 //-----------push-------------
 const pushin=()=>{
-    // numbers.push(5,6);
-    // console.log(numbers);
+    numbers.push(5,6);
+    console.log(numbers);
 }
-// pushin();
+pushin();
 
 
 
 //-----------pop-------------
 const popout=()=>{
-    // numbers.pop();
-    // console.log(numbers);
+    numbers.pop();
+    console.log(numbers);
 }
-// popout();
+popout();
 
 
 //-----------shift------------- Removes the first element from an array and returns it.
@@ -96,12 +96,12 @@ concat();
 
 
 
-//-----------Splice-------------  couts out contents in an array provided the index given
+//-----------Splice-------------  cuts out contents in an array provided the index given
 //This method modifies the original array and returns the removed elements as a new array. 
 const splice=()=>{
-    console.log(numbers)
+    console.log(numbers);
     // let days = numbers.splice(7); // 2 is index then the new array [2,3,4,5,6,7] 4 is normal count of the new array - will start removing elements from index 2.
-//Array.splice(start, removeCount, newItem, newItem, newItem, ...)
+    // Array.splice(start, removeCount, newItem, newItem, newItem, ...)
     // numbers.splice(1,0,'hi') //adds hi from index 1 - 0
     // numbers.splice(2,4,'nice','job')
     console.log(numbers)
@@ -717,6 +717,6 @@ const search=()=>{
 const replaceAll=()=>{
     console.log(nums.replaceAll(14,'ttt')) 
 }
-replaceAll();
+// replaceAll();
 //?????????????????????/
 
