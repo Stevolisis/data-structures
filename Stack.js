@@ -2,30 +2,43 @@
 
 class Stack{
     constructor(){
-        this.item=[];
+        this.items=[];
     }
 
     push(elem){
-        this.item.push(elem);
+        this.items.push(elem);
     }
 
     pop(){
-        this.item.pop();
+        this.items.pop();
     }
 
     peek(){
-        return this.item[this.item.length-1];
+        return this.items[this.items.length-1];
     }
 
     isEmpty(){
-        return this.item.length === 0;
+        return this.items.length === 0;
     }
 
     size(){
-        return this.item.length;
+        return this.items.length;
     }
 
     print(){
-        console.log(this.item.toString());
+        console.log(this.items.toString());
     }
 }
+
+
+const stack=new Stack();
+
+console.log(stack.isEmpty());
+stack.push(20);
+stack.push(30);
+stack.push(40);
+console.log(stack.size());
+stack.print();
+console.log(stack.pop());
+stack.print();
+console.log(stack.peek());
