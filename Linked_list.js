@@ -23,16 +23,40 @@ class LinkedList{
     prepend(value){
         const node = new Node(value);
 
-        if(this.isEmpty()){
-            this.head= node;
-        }else{
+        // if(this.isEmpty()){
+        //     this.head= node;
+        // }else{
+        //     node.next=this.head;
+        //     this.head=node;
+        // }
+
+        if(!this.isEmpty()){
             node.next=this.head;
-            this.head=node;
         }
+        this.head=node;
         this.size++
+    }
+
+    print(){
+        if(this.isEmpty()){
+            console.log('List is Empty');
+        }else{
+            let curr=this.head;
+            let listValues='';
+
+            while(curr){
+                listValues += `${curr.value}`;
+                curr = curr.next;
+            }
+            console.log(listValues);
+        }
+        return
     }
 }
 
 const list=new LinkedList();
-
+list.prepend(3)
+list.prepend(4)
+list.prepend(5)
 console.log(list.isEmpty());
+list.print();
