@@ -122,5 +122,5 @@ list.append(1)
 // console.log(list.getSize())
 console.log(list.isEmpty());
 list.insert(9,2);
-console.log(list.removeFrom(4))
+console.log(list.removeFrom(3))
 list.print();
