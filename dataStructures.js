@@ -114,7 +114,7 @@ function arrayExceptSelf(nums){
     return newArr;
 }
 
-console.log(arrayExceptSelf([1,2,3,4]));
+// console.log(arrayExceptSelf([1,2,3,4]));
 
 
 

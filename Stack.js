@@ -28,7 +28,7 @@ class Stack{
     print(){
         console.log(this.items.toString());
     }
-}
+} 
 
 
 const stack=new Stack();
