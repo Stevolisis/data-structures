@@ -27,7 +27,6 @@ class Double_linked_list{
         }else{
             this.head.prev=node;
             node.next=this.head;
-            node.prev=null;
             this.head=node;
         }
 
@@ -43,45 +42,43 @@ class Double_linked_list{
         }else{
             this.tail.next=node;
             node.prev=this.tail;
-            node.next=null;
             this.tail=node;
         }   
         this.size++
     }
 
     removeFromFront(){
-        const val=this.head;
 
         if(this.isEmpty()){
             return null
         }
-
+        const val=this.head.value;
+        
         if(this.size === 1){
-            this.head=null;
-            this.tail=null
+            this.head = null;
+            this.tail = null;
         }else{
-            const second = this.head.next;
-            this.head=second;
+            this.head=this.head.next;
             this.head.prev = null;
         }
-        
+
         this.size--
         return val;
     }
 
     removeFromEnd(){
-        const val=this.tail;
 
         if(this.isEmpty()){
             return null
         }
 
+        const val=this.tail.value;
+        
         if(this.size === 1){
-            this.head=null;
-            this.tail=null
+            this.head = null;
+            this.tail = null;
         }else{
-            const previous = this.tail.prev;
-            this.tail=previous;
+            this.tail=this.tail.prev;
             this.tail.next = null;
         }
         
