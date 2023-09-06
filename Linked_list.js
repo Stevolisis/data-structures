@@ -167,17 +167,17 @@ class LinkedList{
     }
 }
 
-const list=new LinkedList();
-list.prepend(3)
-list.prepend(4)
-list.prepend(5)
-list.append(2)
-list.append(1)
-// console.log(list.getSize())
-console.log(list.isEmpty());
-list.insert(9,2);
-console.log(list.removeValue(2));
-console.log(list.search(9));
-list.reverse();
-// console.log(list.removeFrom(3));
-list.print();
+// const list=new LinkedList();
+// list.prepend(3)
+// list.prepend(4)
+// list.prepend(5)
+// list.append(2)
+// list.append(1)
+// // console.log(list.getSize())
+// console.log(list.isEmpty());
+// list.insert(9,2);
+// console.log(list.removeValue(2));
+// console.log(list.search(9));
+// list.reverse();
+// // console.log(list.removeFrom(3));
+// list.print();

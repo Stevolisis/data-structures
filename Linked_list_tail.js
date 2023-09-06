@@ -17,6 +17,10 @@ class LinkedListTail{
         return this.size === 0;
     }
 
+    getSize(){
+        return this.size;
+    }
+
     prepend(value){
         const node= new Node(value);
 
@@ -90,13 +94,13 @@ class LinkedListTail{
     }
 }
 
-
-const list=new LinkedListTail();
-list.prepend(3)
-list.prepend(4)
-list.prepend(5)
-list.append(2)
-list.append(1)
-list.removeFromEnd()
-list.removeFromFront()
-list.print();
+module.exports = LinkedListTail;
+// const list=new LinkedListTail();
+// list.prepend(3)
+// list.prepend(4)
+// list.prepend(5)
+// list.append(2)
+// list.append(1)
+// list.removeFromEnd()
+// list.removeFromFront()
+// list.print();
