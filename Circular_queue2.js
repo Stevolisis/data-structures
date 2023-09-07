@@ -30,6 +30,10 @@ class CirclularQueue{
             if(this.front === -1){
                 this.front= this.rear;
             }
+            
+        }else{
+            this.rear = (this.rear + 1) % this.capacity;
+            this.items[this.rear]=elem;
         }
     }
 
@@ -38,6 +42,11 @@ class CirclularQueue{
         this.items[this.front]=null;
         this.front = (this.front + 1) % this.capacity;
         this.currentLength -= 1;
+
+        if(this.isEmpty()){
+            this.front= -1;
+            this.rear= -1;
+        }
     }
 
     peek(){
@@ -61,6 +70,7 @@ queue.enqueue(7);
 // queue.enqueue(10);
 // queue.dequeue();
 queue.enqueue(6);
+queue.enqueue(8);
 queue.enqueue(8);
 
 queue.print();
