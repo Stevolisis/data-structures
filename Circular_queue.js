@@ -35,7 +35,7 @@ class CirclularQueue{
         const item= this.items[this.front];
         this.items[this.front] = null;
         this.front= (this.front + 1) % this.capacity;
-        this.currentLength += 1;
+        this.currentLength -= 1;
 
         if(this.isEmpty()){
             this.front= -1;
@@ -74,8 +74,12 @@ console.log(queue.isEmpty());
 queue.enqueue(3);
 queue.enqueue(4);
 queue.enqueue(5);
-queue.print();
-queue.dequeue();
+queue.enqueue(6);
+queue.enqueue(7);
+queue.enqueue(8);
+queue.enqueue(9);
+// queue.print();
+// queue.dequeue();
 queue.print();
 console.log(queue.peek());
 console.log(queue.isFull());
