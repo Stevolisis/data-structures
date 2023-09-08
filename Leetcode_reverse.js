@@ -77,5 +77,5 @@ class LeetcodeReverse{
 }
 
 const list = new LeetcodeReverse();
-console.log(list.reverse([0,1,2,3,4,5]));
+console.log(list.reverse([1,2,3,4,5]));
 // list.print();
