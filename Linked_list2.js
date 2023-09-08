@@ -152,8 +152,9 @@ class LinkedList{
             prev = curr;
             curr = next;
         }
-        
+        console.log(this.head);
         this.head = prev;
+        console.log(this.head);
     }
 
     print(){
