@@ -9,7 +9,7 @@ const twosum=(nums,target)=>{
     nums.sort((a, b) => a - b);
     let left = 0;
     let right = nums.length - 1;
-    console.log(nums)
+    console.log(nums);
 
     while (left < right) {
         const sum = nums[left] + nums[right];
