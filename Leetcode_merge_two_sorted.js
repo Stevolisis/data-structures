@@ -35,7 +35,7 @@ class MergeSorted{
         this.size++
     }
 
-    convertArrToLinkedList(arr1,arr2){
+    merge(arr1,arr2){
         if(arr1.length === 0) return null;
         arr1.map(elem=>{
             this.append(elem);
@@ -46,7 +46,7 @@ class MergeSorted{
     }
 
     mergeSort(arr1,arr2){
-        this.convertArrToLinkedList(arr1,arr2);
+        this.merge(arr1,arr2);
 
         if(this.size <= 1) return this.convertLinkedListToArr();
         let first = this.head;
