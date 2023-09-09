@@ -1,63 +1,91 @@
-class ListNode {
-    constructor(val, next = null) {
-        this.val = val;
-        this.next = next;
+
+class Node{
+    constructor(value){
+        this.value = value;
+        this.next = null;
     }
 }
 
-function mergeTwoLists(list1, list2) {
-    const dummyHead = new ListNode(-1);
-    let current = dummyHead;
+class MergeSorted{
+    constructor(){
+        this.head = null;
+        this.size = 0;
+    }
 
-    while (list1 && list2) {
-        if (list1.val < list2.val) {
-            current.next = list1;
-            list1 = list1.next;
-        } else {
-            current.next = list2;
-            list2 = list2.next;
+    isEmpty(){
+        return this.size === 0;
+    }
+
+    append(elem){
+        const node = new Node(elem);
+
+        if(this.isEmpty()){
+            this.head = node;
+        }else{
+            let prev = null;
+            let curr = this.head;
+
+            while(curr){
+                prev = curr;
+                curr = curr.next;
+            }
+            prev.next = node;
         }
-        current = current.next;
+
+        this.size++
     }
 
-    if (list1) {
-        current.next = list1;
+    convertArrToLinkedList(arr){
+        if(arr.length === 0) return null;
+        arr.map(elem=>{
+            this.append(elem);
+        })
     }
 
-    if (list2) {
-        current.next = list2;
+    mergeSort(arr1,arr2){
+        this.convertArrToLinkedList(arr1.concat(arr2));
+
+        if(this.size <= 1) return this.convertLinkedListToArr();
+
+        let first = this.head;
+        
+        //124 134
+
+        while(first){
+            let second = first.next;
+
+            while(second){
+                // console.log('first: ',first.value)
+                // console.log('second: ',second.value)
+                // console.log(first.value > second.value);
+
+                if(first.value > second.value){
+                    let seconded = first.value;
+                    first.value = second.value;
+                    second.value = seconded;
+                } 
+
+                second = second.next;
+            }
+            
+            first = first.next;
+        }
+
+        return this.convertLinkedListToArr();
     }
 
-    return dummyHead.next;
+    convertLinkedListToArr(){
+        let reversed_arr = [];
+        let curr = this.head;
+        
+        while(curr){
+            reversed_arr.push(curr.value);
+            curr = curr.next;
+        }
+
+        return reversed_arr;
+    }
 }
 
-// Helper function to convert an array to a linked list
-function arrayToLinkedList(arr) {
-    if (!arr.length) return null;
-    const head = new ListNode(arr[0]);
-    let current = head;
-    for (let i = 1; i < arr.length; i++) {
-        current.next = new ListNode(arr[i]);
-        current = current.next;
-    }
-    return head;
-}
-
-// Helper function to convert a linked list to an array
-function linkedListToArray(head) {
-    const result = [];
-    let current = head;
-    while (current) {
-        result.push(current.val);
-        current = current.next;
-    }
-    return result;
-}
-
-const list1 = arrayToLinkedList([1, 2, 4]);
-const list2 = arrayToLinkedList([1, 3, 4]);
-
-const mergedList = mergeTwoLists(list1, list2);
-const mergedArray = linkedListToArray(mergedList);
-
-console.log(mergedArray); // Output: [1, 1, 2, 3, 4, 4]
+const list = new MergeSorted();
+console.log(list.mergeSort([1,2,4],[1,3,4]));
