@@ -35,22 +35,22 @@ class MergeSorted{
         this.size++
     }
 
-    convertArrToLinkedList(arr){
-        if(arr.length === 0) return null;
-        arr.map(elem=>{
+    convertArrToLinkedList(arr1,arr2){
+        if(arr1.length === 0) return null;
+        arr1.map(elem=>{
             this.append(elem);
-        })
+        });
+        arr2.map(elem=>{
+            this.append(elem);
+        });
     }
 
     mergeSort(arr1,arr2){
-        this.convertArrToLinkedList(arr1.concat(arr2));
+        this.convertArrToLinkedList(arr1,arr2);
 
         if(this.size <= 1) return this.convertLinkedListToArr();
-
         let first = this.head;
         
-        //124 134
-
         while(first){
             let second = first.next;
 
@@ -64,13 +64,10 @@ class MergeSorted{
                     first.value = second.value;
                     second.value = seconded;
                 } 
-
                 second = second.next;
             }
-            
             first = first.next;
         }
-
         return this.convertLinkedListToArr();
     }
 
