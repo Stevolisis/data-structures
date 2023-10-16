@@ -1,5 +1,3 @@
-const lists = [[1,4,5],[1,3,4],[2,6]];
-console.log(lists.flat());
 
 class Node{
     constructor(value){
@@ -39,6 +37,53 @@ class MergeKsorted{
     }
 
     convertKarratToLinkedList(arr){
+        if(arr.length === 0) return [];
+        let flatArr = arr.flat();
 
+        flatArr.map(elem=>{
+            this.append(elem);
+        });
+    }
+
+    kSort(arr){
+        this.convertKarratToLinkedList(arr);
+        let first = this.head;
+
+        while(first){
+            let second = first.next;
+
+            while(second){
+
+                if(first.value > second.value){
+                    let secondVal = second.value;
+                    second.value = first.value;
+                    first.value = secondVal;
+                }
+                second = second.next;
+            }
+            first = first.next;
+        }
+        return this.print();
+    }
+
+    print(){
+        let listValues = [];
+        if(this.isEmpty()){
+            listValues = [];
+        }else{
+            let prev = null;
+            let curr = this.head;
+
+            while(curr){
+                prev = curr;
+                curr = curr.next;
+                listValues.push(prev.value);
+            }
+        }
+        return listValues;
     }
 }
+
+const list = new MergeKsorted();
+
+console.log(list.kSort([[1,4,5],[1,3,4],[2,6]]))
