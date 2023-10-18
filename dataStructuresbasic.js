@@ -512,7 +512,7 @@ const length=()=>{
 
 //-----------charAt------------
 const charAt=()=>{
-    console.log(nums.charAt(6))
+    console.log(nums.charAt(0)) //H
 }
 // charAt();
 
@@ -520,9 +520,9 @@ const charAt=()=>{
 
 //-----------charCodeAt------------ returns unicode value of the character at the specified index
 const charCodeAt=()=>{
-    console.log(nums.charCodeAt(0)) //72
+    console.log(nums.charCodeAt('H')) //72
 }
-// charCodeAt();
+charCodeAt();
 
 
 
