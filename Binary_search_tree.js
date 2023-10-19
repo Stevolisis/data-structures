@@ -91,6 +91,22 @@ class BinarySearchTree{
             console.log('null');
         }
     }
+
+    min(root){
+        if(!root.left){
+            return root.value;
+        }else{
+            return this.min(root.left)
+        }
+    }
+
+    max(root){
+        if(!root.right){
+            return root.value;
+        }else{
+            return this.max(root.right)
+        }
+    }
 }
 
 const tree = new BinarySearchTree();
@@ -102,4 +118,6 @@ tree.insert(7);
 // console.log(tree.search(tree.root,15));
 // console.log(tree.preOrder(tree.root));
 // console.log(tree.inOrder(tree.root));
-console.log(tree.postOrder(tree.root));
+// console.log(tree.postOrder(tree.root));
+console.log(tree.min(tree.root));
+console.log(tree.max(tree.root));
