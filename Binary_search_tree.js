@@ -53,6 +53,14 @@ class BinarySearchTree{
             }
         }
     }
+
+    preOrder(root){
+        if(root){
+            console.log(root);
+            this.preOrder(root.left);
+            this.preOrder(root.right);
+        }
+    }
 }
 
 const tree = new BinarySearchTree();
@@ -60,4 +68,5 @@ tree.insert(10);
 tree.insert(5);
 tree.insert(15);
 tree.insert(3);
-console.log(tree.search(tree.root,15));
+// console.log(tree.search(tree.root,15));
+console.log(tree.preOrder(tree.root));
