@@ -170,3 +170,5 @@ tree.insert(7);
 // console.log(tree.min(tree.root));
 // console.log(tree.max(tree.root));
 tree.levelOrder();
+console.log('delet: ',tree.deleteNode(7));
+tree.levelOrder();
