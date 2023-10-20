@@ -124,6 +124,37 @@ class BinarySearchTree{
             return this.max(root.right)
         }
     }
+
+    delete(value){
+        this.root = this.deleteNode(this.root,value);
+    }
+
+    deleteNode(root,value){
+        if(!root){
+            return root;
+        }
+        if(root.value > value){
+            root.left = this.deleteNode(root.left,value);
+        }else if(root.value < value){
+            root.right = this.deleteNode(root.right,value);
+        }else{
+            //leafNode
+            if(!root.left&&!root.right){
+                return null;
+            }
+            //no left child
+            if(!root.left){
+                return root.right;
+            }else if(!root.right){
+                return root.left;
+            }
+            //now it means it has two node, then replace with its successor from the right
+            root.value = this.min(root.right);
+            //now delete the node at right
+            root.right = this.deleteNode(root.right,root.value);
+        }
+        return root;
+    }
 }
 
 const tree = new BinarySearchTree();
