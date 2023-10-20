@@ -56,7 +56,8 @@ class BinarySearchTree{
 
     //    10    
     //  5    15  
-    //3   7     
+    //3   7    
+    //pre,in and postOrder are Depth first search 
 
     preOrder(root){
         if(root){
@@ -92,6 +93,22 @@ class BinarySearchTree{
         }
     }
 
+    //Breadth first search
+    levelOrder(){
+        let queue = [];
+        queue.push(this.root);
+        while(queue.length){
+            const curr = queue.shift();
+            console.log(curr);
+            if(curr.left){
+                queue.push(curr.left);
+            }
+            if(curr.right){
+                queue.push(curr.right);
+            }
+        }
+    }
+
     min(root){
         if(!root.left){
             return root.value;
@@ -119,5 +136,6 @@ tree.insert(7);
 // console.log(tree.preOrder(tree.root));
 // console.log(tree.inOrder(tree.root));
 // console.log(tree.postOrder(tree.root));
-console.log(tree.min(tree.root));
-console.log(tree.max(tree.root));
+// console.log(tree.min(tree.root));
+// console.log(tree.max(tree.root));
+tree.levelOrder();

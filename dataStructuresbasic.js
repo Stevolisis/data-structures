@@ -50,7 +50,7 @@ const app=express();
 const numbers = [0, 1, 2, 3, 4, 5, 6, 7,];
 
 
-//-----------push-------------
+//-----------push------------- pushed item from ending
 const pushin=()=>{
     numbers.push(5,6);
     console.log(numbers);
@@ -59,7 +59,7 @@ pushin();
 
 
 
-//-----------pop-------------
+//-----------pop------------- removes item from ending
 const popout=()=>{
     numbers.pop();
     console.log(numbers);
