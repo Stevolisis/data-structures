@@ -133,13 +133,13 @@ class BinarySearchTree{
         if(!root){
             return root;
         }
-        if(root.value > value){
+        if(value < root.value){
             root.left = this.deleteNode(root.left,value);
-        }else if(root.value < value){
+        }else if(value > root.value){
             root.right = this.deleteNode(root.right,value);
         }else{
             //leafNode
-            if(!root.left&&!root.right){
+            if(!root.left && !root.right){
                 return null;
             }
             //no left child
@@ -162,13 +162,13 @@ tree.insert(10);
 tree.insert(5);
 tree.insert(15);
 tree.insert(3);
-tree.insert(7);
+// tree.insert(7);
 // console.log(tree.search(tree.root,15));
 // console.log(tree.preOrder(tree.root));
 // console.log(tree.inOrder(tree.root));
 // console.log(tree.postOrder(tree.root));
 // console.log(tree.min(tree.root));
 // console.log(tree.max(tree.root));
-tree.levelOrder();
-console.log('delet: ',tree.deleteNode(7));
+// tree.levelOrder();
+console.log('delete: ',tree.delete(3));
 tree.levelOrder();
