@@ -148,7 +148,7 @@ class BinarySearchTree{
             }else if(!root.right){
                 return root.left;
             }
-            //now it means it has two node, then replace with its successor from the right
+            // now it means it has two node, then replace with its successor from the right
             root.value = this.min(root.right);
             //now delete the node at right
             root.right = this.deleteNode(root.right,root.value);
