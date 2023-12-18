@@ -10,6 +10,8 @@ class Node{
 class MaxDepth{
     constructor(){
         this.root = null;
+        this.leftDepth = [];
+        this.rightDepth = [];
     }
 
     isEmpty(){
@@ -27,8 +29,6 @@ class MaxDepth{
     }
 
     insertNode(root,newNode){
-        console.log('new: ',newNode)
-
         if(newNode.value < root.value){
             if(root.left){
                 return this.insertNode(root.left,newNode);
@@ -47,21 +47,35 @@ class MaxDepth{
     convertArrToTree(arr){
         arr.forEach(elem => {
             if(elem!==null){
-                console.log('mmmmmmmmmmm: ',elem)
                 this.insert(elem);                
             }
         });
     }
 
-    findMaxDepth(arr){
-        this.convertArrToTree(arr);
-        this.display(this.root)
+    findMaxDepth(root){
+        if(!root){
+            return undefined;
+        }else{
+            if(root.left){
+                console.log('leeeeeft',root.value);
+                this.leftDepth.push(root.value);
+                this.findMaxDepth(root.left);
+            }
+            
+            if(root.right){
+                console.log('rigggght',root.value);
+                this.rightDepth.push(root.value);
+                this.findMaxDepth(root.right);
+            }
+        }
+
+        console.log(this.leftDepth.length," : ",this.rightDepth.length);
     }
 
     display(root){
-        if(!this.root){
-            console.log('Null');
-            // return undefined;
+        if(!root){
+            // console.log('Null');
+            return undefined;
         }else{
             console.log(root);
             this.display(root.left);
@@ -72,4 +86,9 @@ class MaxDepth{
 
 
 const tree = new MaxDepth();
-tree.findMaxDepth([3,9,20,null,null,15,7]);
+tree.convertArrToTree([3,9,20,null,null,15,7]);
+tree.findMaxDepth(tree.root);
+//        3
+//              9
+//           7      20
+//                15
